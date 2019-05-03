@@ -1,0 +1,62 @@
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Listado de usuarios</h3>
+        </div>
+        <div class="my-2 text-left">
+          <button class="btn btn-rounded btn-primary" type="button" routerLink = "/usuarios/create">Crear Usuario</button>
+        </div>
+        <div *ngIf="usuarios?.length==0" class="alert alert-info">
+          No hay registros en la Base de Datos.
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-6"></div>
+            <div class="col-sm-6"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info" *ngIf="usuarios?.length>0">
+            <thead>
+            <tr role="row">
+              <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nombre</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Apellidos</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Dirección</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Teléfono</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Fecha nacimiento</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Editar</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Borrar</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios |paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellidos }}</td>
+                    <td>{{ usuario.direccion }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.fechaNac }}</td>
+                    <td>
+                      <button type="button" name="editar" [routerLink]="['/usuarios/create', usuario.id]" class="btn btn-primary">editar</button>
+                    </td>
+                    <td>
+                        <button type="button" name="eliminar" class="btn btn-danger" (click)='delete(usuario)'>borrar</button>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </section>

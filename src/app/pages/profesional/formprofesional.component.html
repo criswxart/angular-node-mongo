@@ -1,0 +1,73 @@
+
+<div class="x_panel">
+    <div class="x_title">
+      <h2>Crear profesional</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <br>
+      <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarProfesional()" class="form-horizontal form-label-left">
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <input formControlName="nombre" name="nombre" required type="text" class="form-control" placeholder="Juan">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input formControlName="apellidos" name="apellidos" required type="text" class="form-control" placeholder="Pérez Leiva">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <select formControlName="especialidad" name="especialidad" required class="form-control">
+                <option>Terapeuta Ocupacion</option>
+                <option>Psicóloga</option>
+                <option>Técnico en rehabilitació<noscript></noscript></option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefono</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input formControlName="telefono" name="telefono" required type="text" class="form-control" placeholder="946564738">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input class="form-control" formControlName="email" name="email" type="text" required  placeholder="ejemplo@ejemplo.com">
+            </div>
+          </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <input formControlName="password" name="password" type="password" required class="form-control" value="passwordonetwo">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirmar contraseña</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <input formControlName="password2" name="password2" type="password" required class="form-control" value="passwordonetwo">
+            <div class="form-group" *ngIf="forma.errors?.passwordMatchValidator && !forma.pristine">
+              <p class="text-danger">
+                Las contraseñas deben se ser iguales
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+          <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+           <!--  <button type="button" class="btn btn-primary">Cancel</button>
+            <button type="reset" class="btn btn-primary">Reset</button> -->
+            <button type="submit" class="btn btn-success">Crear profesional</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>

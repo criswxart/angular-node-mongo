@@ -8,7 +8,7 @@ export class Profesional {
         public email:string,
         public password:string,
         public img?: string,
-        public role: string = 'ADMIN_ROLE',
+        public role?: string,
         public _id?:string
     ){}  
 }

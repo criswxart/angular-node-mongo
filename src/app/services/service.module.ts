@@ -6,7 +6,8 @@ import {
   AsidenavbarService,
   UsuarioService,
   LayoutService,
-  ProfesionalService
+  ProfesionalService,
+  LoginGuardGuard
  } from './service.index';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     AsidenavbarService,
     UsuarioService,
     LayoutService,
-    ProfesionalService
+    ProfesionalService,
+    LoginGuardGuard
   ]
 })
 export class ServiceModule { }

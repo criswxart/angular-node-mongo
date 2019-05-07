@@ -5,11 +5,13 @@ import {UsuarioComponent} from './usuario/usuario.component';
 import { CreateformComponent } from './usuario/createform.component';
 import { FormprofesionalComponent } from './profesional/formprofesional.component';
 import { ProfesionalComponent } from './profesional/profesional.component';
+import { LoginGuardGuard } from '../services/service.index';
 
 const pagesRoutes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [LoginGuardGuard],
     children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'usuarios', component: UsuarioComponent},

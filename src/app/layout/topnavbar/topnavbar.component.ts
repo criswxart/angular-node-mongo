@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfesionalService } from '../../services/service.index';
 
 @Component({
   selector: 'app-topnavbar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _profesionalService: ProfesionalService) { }
 
   ngOnInit() {
   }
 
+  salir(){
+    this._profesionalService.logout();
+  }
 }

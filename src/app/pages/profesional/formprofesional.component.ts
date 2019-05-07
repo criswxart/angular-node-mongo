@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProfesionalService } from '../../services/service.index';
-import { Profesional } from 'src/app/models/profesional.model';
+import { Profesional } from '../../models/profesional.model';
+
 
 @Component({
   selector: 'app-formprofesional',
@@ -57,17 +58,17 @@ export class FormprofesionalComponent implements OnInit {
       this.forma.value.apellidos,
       this.forma.value.especialidad,
       this.forma.value.telefono,
-      this.forma.value.correo,
+      this.forma.value.email,
       this.forma.value.password,
       this.forma.value.password2
     );
     this._profesionalService.crearProfesional( profesional )
       .subscribe( resp => {
         console.log(resp);
-      })
+      });
 
     console.log('Forma valida', this.forma.valid );
     console.log(this.forma.value);
   }
- 
+
 }
